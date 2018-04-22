@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.allan.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.allan.entity.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="card_number" property="cardNumber" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="REAL" />
+    <result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
+    <result column="pay_pass" property="payPass" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="avatar_img" property="avatarImg" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="provice_name" property="proviceName" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="cardid" property="cardid" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="bank_card_number" property="bankCardNumber" jdbcType="VARCHAR" />
+    <result column="bank_open_name" property="bankOpenName" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_phone" property="bankPhone" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="REAL" />
+    <result column="rewards_balance" property="rewardsBalance" jdbcType="REAL" />
+    <result column="reg_balance" property="regBalance" jdbcType="REAL" />
+    <result column="referrer_id" property="referrerId" jdbcType="BIGINT" />
+    <result column="referrer" property="referrer" jdbcType="VARCHAR" />
+    <result column="referrer_phone" property="referrerPhone" jdbcType="VARCHAR" />
+    <result column="referrer_type" property="referrerType" jdbcType="TINYINT" />
+    <result column="reg_id" property="regId" jdbcType="VARCHAR" />
+    <result column="is_open" property="isOpen" jdbcType="BIT" />
+    <result column="create_date_time" property="createDateTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="invalid" property="invalid" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, card_number, mobile, money, login_pwd, pay_pass, realname, avatar_img, age, sex, 
+    provice_name, city_name, cardid, account_name, bank_card_number, bank_open_name, 
+    bank_name, bank_phone, balance, rewards_balance, reg_balance, referrer_id, referrer, 
+    referrer_phone, referrer_type, reg_id, is_open, create_date_time, update_time, status, 
+    invalid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_su_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tbl_su_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.allan.entity.User" >
+    insert into tbl_su_user (id, card_number, mobile, 
+      money, login_pwd, pay_pass, 
+      realname, avatar_img, age, 
+      sex, provice_name, city_name, 
+      cardid, account_name, bank_card_number, 
+      bank_open_name, bank_name, bank_phone, 
+      balance, rewards_balance, reg_balance, 
+      referrer_id, referrer, referrer_phone, 
+      referrer_type, reg_id, is_open, 
+      create_date_time, update_time, status, 
+      invalid)
+    values (#{id,jdbcType=BIGINT}, #{cardNumber,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, 
+      #{money,jdbcType=REAL}, #{loginPwd,jdbcType=VARCHAR}, #{payPass,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{avatarImg,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{sex,jdbcType=TINYINT}, #{proviceName,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{cardid,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, #{bankCardNumber,jdbcType=VARCHAR}, 
+      #{bankOpenName,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, #{bankPhone,jdbcType=VARCHAR}, 
+      #{balance,jdbcType=REAL}, #{rewardsBalance,jdbcType=REAL}, #{regBalance,jdbcType=REAL}, 
+      #{referrerId,jdbcType=BIGINT}, #{referrer,jdbcType=VARCHAR}, #{referrerPhone,jdbcType=VARCHAR}, 
+      #{referrerType,jdbcType=TINYINT}, #{regId,jdbcType=VARCHAR}, #{isOpen,jdbcType=BIT}, 
+      #{createDateTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{invalid,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.allan.entity.User" >
+    insert into tbl_su_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cardNumber != null" >
+        card_number,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="loginPwd != null" >
+        login_pwd,
+      </if>
+      <if test="payPass != null" >
+        pay_pass,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="avatarImg != null" >
+        avatar_img,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="proviceName != null" >
+        provice_name,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="cardid != null" >
+        cardid,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="bankCardNumber != null" >
+        bank_card_number,
+      </if>
+      <if test="bankOpenName != null" >
+        bank_open_name,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="bankPhone != null" >
+        bank_phone,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="rewardsBalance != null" >
+        rewards_balance,
+      </if>
+      <if test="regBalance != null" >
+        reg_balance,
+      </if>
+      <if test="referrerId != null" >
+        referrer_id,
+      </if>
+      <if test="referrer != null" >
+        referrer,
+      </if>
+      <if test="referrerPhone != null" >
+        referrer_phone,
+      </if>
+      <if test="referrerType != null" >
+        referrer_type,
+      </if>
+      <if test="regId != null" >
+        reg_id,
+      </if>
+      <if test="isOpen != null" >
+        is_open,
+      </if>
+      <if test="createDateTime != null" >
+        create_date_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="invalid != null" >
+        invalid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cardNumber != null" >
+        #{cardNumber,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=REAL},
+      </if>
+      <if test="loginPwd != null" >
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="payPass != null" >
+        #{payPass,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarImg != null" >
+        #{avatarImg,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="proviceName != null" >
+        #{proviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null" >
+        #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bankOpenName != null" >
+        #{bankOpenName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPhone != null" >
+        #{bankPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=REAL},
+      </if>
+      <if test="rewardsBalance != null" >
+        #{rewardsBalance,jdbcType=REAL},
+      </if>
+      <if test="regBalance != null" >
+        #{regBalance,jdbcType=REAL},
+      </if>
+      <if test="referrerId != null" >
+        #{referrerId,jdbcType=BIGINT},
+      </if>
+      <if test="referrer != null" >
+        #{referrer,jdbcType=VARCHAR},
+      </if>
+      <if test="referrerPhone != null" >
+        #{referrerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="referrerType != null" >
+        #{referrerType,jdbcType=TINYINT},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpen != null" >
+        #{isOpen,jdbcType=BIT},
+      </if>
+      <if test="createDateTime != null" >
+        #{createDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="invalid != null" >
+        #{invalid,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.allan.entity.User" >
+    update tbl_su_user
+    <set >
+      <if test="cardNumber != null" >
+        card_number = #{cardNumber,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=REAL},
+      </if>
+      <if test="loginPwd != null" >
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="payPass != null" >
+        pay_pass = #{payPass,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarImg != null" >
+        avatar_img = #{avatarImg,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="proviceName != null" >
+        provice_name = #{proviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        cardid = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null" >
+        bank_card_number = #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="bankOpenName != null" >
+        bank_open_name = #{bankOpenName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPhone != null" >
+        bank_phone = #{bankPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=REAL},
+      </if>
+      <if test="rewardsBalance != null" >
+        rewards_balance = #{rewardsBalance,jdbcType=REAL},
+      </if>
+      <if test="regBalance != null" >
+        reg_balance = #{regBalance,jdbcType=REAL},
+      </if>
+      <if test="referrerId != null" >
+        referrer_id = #{referrerId,jdbcType=BIGINT},
+      </if>
+      <if test="referrer != null" >
+        referrer = #{referrer,jdbcType=VARCHAR},
+      </if>
+      <if test="referrerPhone != null" >
+        referrer_phone = #{referrerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="referrerType != null" >
+        referrer_type = #{referrerType,jdbcType=TINYINT},
+      </if>
+      <if test="regId != null" >
+        reg_id = #{regId,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpen != null" >
+        is_open = #{isOpen,jdbcType=BIT},
+      </if>
+      <if test="createDateTime != null" >
+        create_date_time = #{createDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="invalid != null" >
+        invalid = #{invalid,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.allan.entity.User" >
+    update tbl_su_user
+    set card_number = #{cardNumber,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      money = #{money,jdbcType=REAL},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      pay_pass = #{payPass,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      avatar_img = #{avatarImg,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=TINYINT},
+      provice_name = #{proviceName,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      cardid = #{cardid,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      bank_card_number = #{bankCardNumber,jdbcType=VARCHAR},
+      bank_open_name = #{bankOpenName,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      bank_phone = #{bankPhone,jdbcType=VARCHAR},
+      balance = #{balance,jdbcType=REAL},
+      rewards_balance = #{rewardsBalance,jdbcType=REAL},
+      reg_balance = #{regBalance,jdbcType=REAL},
+      referrer_id = #{referrerId,jdbcType=BIGINT},
+      referrer = #{referrer,jdbcType=VARCHAR},
+      referrer_phone = #{referrerPhone,jdbcType=VARCHAR},
+      referrer_type = #{referrerType,jdbcType=TINYINT},
+      reg_id = #{regId,jdbcType=VARCHAR},
+      is_open = #{isOpen,jdbcType=BIT},
+      create_date_time = #{createDateTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      invalid = #{invalid,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryUserList" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from tbl_su_user
+    ORDER BY create_date_time DESC
+  </select>
+</mapper>
