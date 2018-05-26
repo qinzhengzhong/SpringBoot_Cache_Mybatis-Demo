@@ -37,7 +37,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService{
     }
 
     @Override
-    @Cacheable(value = "FindUserListCache")
+//    @Cacheable(value = "FindUserListCache")
     public List<User> queryUserList(Map<Object, Object> params) {
         List<User> userList=new ArrayList<User>();
         if(params.get("pageNo")!=null){

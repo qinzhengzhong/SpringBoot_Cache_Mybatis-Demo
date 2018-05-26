@@ -22,8 +22,8 @@
         <Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
         <Logger name="org.springframework" level="warn" />
         <Logger name="com.github" level="debug" />
-        <!--记录 com.allan.boot 包及其子包 debug 及其以上的记录，并输出到文件中-->
-        <Logger name="com.allan.boot" level="debug">
+        <!--记录 com.allan.* 包及其子包 debug 及其以上的记录，并输出到文件中-->
+        <Logger name="com.allan.*" level="debug">
             <!-- AppenderRef 可以控制文件输出对象-->
             <AppenderRef ref="File" />
         </Logger>

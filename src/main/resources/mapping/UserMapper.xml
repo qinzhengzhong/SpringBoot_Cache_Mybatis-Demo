@@ -44,15 +44,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from tbl_su_user
+    from t_user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from tbl_su_user
+    delete from t_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.allan.entity.User" >
-    insert into tbl_su_user (id, card_number, mobile, 
+    insert into t_user (id, card_number, mobile,
       money, login_pwd, pay_pass, 
       realname, avatar_img, age, 
       sex, provice_name, city_name, 
@@ -76,7 +76,7 @@
       #{invalid,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.allan.entity.User" >
-    insert into tbl_su_user
+    insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -269,7 +269,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.allan.entity.User" >
-    update tbl_su_user
+    update t_user
     <set >
       <if test="cardNumber != null" >
         card_number = #{cardNumber,jdbcType=INTEGER},
@@ -365,7 +365,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.allan.entity.User" >
-    update tbl_su_user
+    update t_user
     set card_number = #{cardNumber,jdbcType=INTEGER},
       mobile = #{mobile,jdbcType=VARCHAR},
       money = #{money,jdbcType=REAL},
@@ -402,7 +402,7 @@
   <select id="queryUserList" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select
     <include refid="Base_Column_List" />
-    from tbl_su_user
+    from t_user
     ORDER BY create_date_time DESC
   </select>
 </mapper>
