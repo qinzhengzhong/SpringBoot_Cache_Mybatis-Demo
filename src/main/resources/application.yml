@@ -54,6 +54,16 @@ spring:
 #   让控制器输出的json字符串格式更美观
     jackson:
       serialization: true
+      #指定日期格式
+      date-format: yyyy-MM-dd HH:mm
+    http:
+#    是否开启文件上传支持
+      multipart:
+        enabled: true
+#    静态文件地址（使用thymeleaf模板）
+    thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
 
 
 # MyBatis 配置
