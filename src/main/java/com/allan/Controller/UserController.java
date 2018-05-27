@@ -8,10 +8,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -21,7 +23,7 @@ import java.util.Map;
 /**
  *springdemo
  */
-@RestController
+@Controller
 public class UserController {
 
     private  final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -29,7 +31,8 @@ public class UserController {
     @Resource
     UserService userService;
 
-    private  Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+    private  Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
+
 
 
     @RequestMapping(value = "/findUser", method = RequestMethod.GET)
