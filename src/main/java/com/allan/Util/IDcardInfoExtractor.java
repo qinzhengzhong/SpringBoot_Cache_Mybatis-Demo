@@ -67,18 +67,15 @@ public class IDcardInfoExtractor {
         }
     };
 
-    private IDcardValidatorUtil validator = null;
-
 
     /**
      * 通过构造方法初始化各个成员属性
      */
     public IDcardInfoExtractor(String idcard) {
         try {
-            validator = new IDcardValidatorUtil();
-            if (validator.isValidatedAllIdcard(idcard)) {
+            if (IDcardValidatorUtil.isValidatedAllIdcard(idcard)) {
                 if (idcard.length() == 15) {
-                    idcard = validator.convertIdcarBy15bit(idcard);
+                    idcard = IDcardValidatorUtil.convertIdcarBy15bit(idcard);//将15位的身份证转成18位身份证
                 }
                 // 获取省份
                 String provinceId = idcard.substring(0, 2);
