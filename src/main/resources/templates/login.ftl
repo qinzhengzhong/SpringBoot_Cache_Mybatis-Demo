@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>我的管理系统(FreeMarker模板)</title>
+    <title>管理系统(FreeMarker模板)</title>
     <meta name="description" content="这是一个 index 页面"/>
     <meta name="keywords" content="index"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -36,7 +36,8 @@
         </div>
 
         <div class="login-font">
-            <i>登录 </i> or <span> 注册</span>
+            <i> </i>
+            <span> </span>
         </div>
         <div class="am-u-sm-10 login-am-center">
             <form class="am-form login" id="loginForm" action="/allan/checkLogin" onsubmit="retrun check(this)">
@@ -47,6 +48,11 @@
                     <div class="am-form-group">
                         <input type="password" class="" id="possword" name="possword" placeholder="输入密码"/>
                     </div>
+                    <p>
+                        <font size="14px" color="red">
+                           <#if msg??>${msg}</#if>
+                       </font>
+                    </p>
                     <p>
                         <button type="submit" class="am-btn am-btn-default">登录</button>
                     </p>

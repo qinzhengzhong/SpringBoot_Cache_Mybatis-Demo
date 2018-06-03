@@ -28,7 +28,8 @@ public class LoginController {
     }
 
     /**
-     *  登录校验
+     * 登录校验
+     *
      * @param userName
      * @param possword
      * @param model
@@ -36,16 +37,20 @@ public class LoginController {
      */
     @RequestMapping(value = "/allan/checkLogin")
     public String checkLogin(@RequestParam(value = "userName", required = false) String userName,
-                                   @RequestParam(value = "possword", required = false) String possword, Model model) {
-        logger.info("*************用户：" + userName + "即将登录系统******************");
+                             @RequestParam(value = "possword", required = false) String possword, Model model) {
+        String msg = "";
         if (StringUtils.isNotBlank(userName) && StringUtils.isNotBlank(possword)) {
             if (!StringUtils.equals(userName, "allan@qq.com") || !StringUtils.equals(possword, "123456")) {
-                return "error";
+                msg = "用户名或密码错误！";
+                model.addAttribute("msg", msg);
+                return "/login";
             }
         } else {
-            return "error";
+            msg = "用户名或密码不能为空！";
+            model.addAttribute("msg", msg);
+            return "/login";
         }
-        logger.info("*************用户：" + userName +"密码："+possword+ ",验证通过");
+        logger.info("*************用户：" + userName + "密码：" + possword + ",验证通过");
         model.addAttribute("userName", userName);
         model.addAttribute("freeMarker", "使用FreeMarker 模板加载");
         return "success";
