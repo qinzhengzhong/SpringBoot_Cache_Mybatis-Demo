@@ -60,10 +60,11 @@ spring:
 #    是否开启文件上传支持
       multipart:
         enabled: true
-#    静态文件地址（使用thymeleaf模板）
-    thymeleaf:
-      prefix: classpath:/templates/
-      suffix: .html
+#   视图配置（使用freemarker模板）
+    freemarker:
+      charset: UTF-8
+      suffix: .ftl
+      template-loader-path: classpath:/templates/
 
 
 # MyBatis 配置

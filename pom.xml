@@ -6,7 +6,7 @@
 	<groupId>com.allan</groupId>
 	<artifactId>springDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>jar</packaging><!-- jar是不支持jsp运行的,war:支持jsp文件运行-->
 
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
@@ -210,10 +210,21 @@
 			<version>4.12</version>
 		</dependency>
 		<!-- thymeleaf模板  -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>-->
+		<!--jsp页面使用jstl标签-->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
+		<!--用于编译jsp-->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
