@@ -53,7 +53,7 @@ public class LoginController {
         logger.info("*************用户：" + userName + "密码：" + possword + ",验证通过");
         model.addAttribute("userName", userName);
         model.addAttribute("freeMarker", "使用FreeMarker 模板加载");
-        return "success";
+        return "/lay/index";
     }
 
 

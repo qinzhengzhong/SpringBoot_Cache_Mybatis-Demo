@@ -40,7 +40,7 @@
             <span> </span>
         </div>
         <div class="am-u-sm-10 login-am-center">
-            <form class="am-form login" id="loginForm" action="/allan/checkLogin" onsubmit="retrun check(this)">
+            <form class="am-form login" id="loginForm" action="/allan/checkLogin" onsubmit="retrun check(this)" method="post">
                 <fieldset>
                     <div class="am-form-group">
                         <input type="email" class="" id="userName" name="userName" placeholder="输入用户名"/>
