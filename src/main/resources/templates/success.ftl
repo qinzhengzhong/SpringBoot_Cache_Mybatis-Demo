@@ -7,7 +7,9 @@
 </head>
 <body data-type="login">
 
-    欢迎您登录系统！！！！！！！！！！
+${userName}你好,欢迎您登录系统！！！！！！！！！！<br>
+${freeMarker}
+
 
 </body>
 </html>

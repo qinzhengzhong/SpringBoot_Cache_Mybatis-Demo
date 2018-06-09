@@ -1,22 +1,14 @@
 
-// 登录系统
-$("#loginButton").on("click",function(){
+/**
+ * 登录校验
+ */
+function check() {
     var userName=$("#userName").val();
     var pwd=$("#possword").val();
     if(userName=='' || pwd ==''){
         alert("请输入邮用户名或密码！");
-        return;
+        return false;
     }
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: "/allan/checkLogin",
-        data: {
-            userName: userName,
-            pwd:pwd
-        },
-        success:function(){
-            alert("欢迎登录");
-        }
-    });
-});
+    return true;
+
+}
