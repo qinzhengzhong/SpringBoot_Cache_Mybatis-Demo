@@ -1,6 +1,6 @@
 package com.allan.Controller;
 
-import com.allan.service.RedisService;
+import com.allan.service.redis.RedisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
