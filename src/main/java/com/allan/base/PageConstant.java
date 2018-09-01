@@ -1,4 +1,4 @@
-package com.allan.base.mapper;
+package com.allan.base;
 
 public class PageConstant {
     public static int pageSize = 15;//每页显示数量

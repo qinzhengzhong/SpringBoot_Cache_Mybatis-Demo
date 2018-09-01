@@ -1,9 +1,10 @@
-package com.allan.base.mapper;
+package com.allan.base;
 
 /**
- * 基础dao工具类
+ * 基础service
  */
-public interface BaseMapper {
+public interface BaseService {
+    public abstract BaseMapper getMapper();
 
     public <T> int insert(T t);
 

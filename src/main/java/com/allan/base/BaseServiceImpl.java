@@ -1,4 +1,4 @@
-package com.allan.base.mapper;
+package com.allan.base;
 
 /**
  * 基础service实现类
