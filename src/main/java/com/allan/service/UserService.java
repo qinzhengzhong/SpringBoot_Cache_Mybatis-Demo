@@ -1,7 +1,8 @@
 package com.allan.service;
 
-import com.allan.base.mapper.BaseService;
+import com.allan.base.BaseService;
 import com.allan.entity.User;
+import com.allan.query.UserQuery;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ public interface UserService extends BaseService{
      * @param id 用户ID
      * @return
      */
-    User getById(Long id);
+    User getById(Integer id);
 
     /**
      * 获取所有用户
-     * @param params  查询map 条件
+     * @param user  查询map 条件
      * @return 所有用户
      */
-    List<User> queryUserList(Map<Object,Object> params);
+    List<User> queryUserList(UserQuery user);
 }
