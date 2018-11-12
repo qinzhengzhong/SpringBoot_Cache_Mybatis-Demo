@@ -1,49 +1,73 @@
-package test;
+package com.allan.Util.PDFUtil;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.jfinal.kit.PathKit;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 /**
- * PDF工具类
+ * PDF样式设计工具类
+ *
  * 参考文章：https://blog.csdn.net/the_first_c/article/details/53522713?utm_source=blogxgwz1
  */
-public class PdfTool {
-    //正文body 字体
+public class PDFTool {
+
+    /**
+     * 正文body 字体
+     * @return
+     * @throws DocumentException
+     * @throws IOException
+     */
     public static Font setChineseFont() throws DocumentException, IOException {
-        File font = new File(PathKit.getWebRootPath()  );
-        BaseFont bfChinese = BaseFont.createFont(font.getPath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+        BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
         Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
         return FontChinese;
     }
-    //table thead 字体
+
+    /**
+     * table thead 字体
+     * @return
+     * @throws DocumentException
+     * @throws IOException
+     */
     public static Font setTheadFont() throws DocumentException, IOException {
-        File font = new File(PathKit.getWebRootPath()  );
-        BaseFont bfChinese = BaseFont.createFont(font.getPath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+        BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
         Font FontChinese = new Font(bfChinese, 11, Font.NORMAL);
         return FontChinese;
     }
-    //table tbody 字体
+
+    /**
+     * table tbody 字体
+     * @return
+     * @throws DocumentException
+     * @throws IOException
+     */
     public static Font setTbodyFont() throws DocumentException, IOException {
-        File font = new File(PathKit.getWebRootPath()  );
-        BaseFont bfChinese = BaseFont.createFont(font.getPath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+        BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
         Font FontChinese = new Font(bfChinese, 9, Font.NORMAL);
         return FontChinese;
     }
-    //文档一号标题
+
+    /**
+     * 文档一号标题
+     * @return
+     * @throws DocumentException
+     * @throws IOException
+     */
     public static Font setDheadFont() throws DocumentException, IOException {
-        File font = new File(PathKit.getWebRootPath()  );
-        BaseFont bfChinese = BaseFont.createFont(font.getPath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+        BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
         Font FontChinese = new Font(bfChinese, 14, Font.NORMAL);
         return FontChinese;
     }
-    //获取字符长度（为了让汉字和字母长度统一）
+
+    /**
+     * 获取字符长度（为了让汉字和字母长度统一）
+     * @param s
+     * @return
+     */
     public static int length(String s) {
         if (s == null)
             return 0;
@@ -110,7 +134,13 @@ public class PdfTool {
         document.add(table);
         return document;
     }
-    //设置行距
+
+    /**
+     * 设置行距
+     * @param document
+     * @param i
+     * @throws DocumentException
+     */
     public static void addParaAfter(Document document,float i) throws DocumentException {
         // TODO Auto-generated method stub
         Paragraph p=new Paragraph();

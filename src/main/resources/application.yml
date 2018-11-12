@@ -71,6 +71,9 @@ spring:
       charset: UTF-8
       suffix: .ftl
       template-loader-path: classpath:/templates/
+#    加入spring session 配置(使用redis 管理session)
+    session:
+      store-type: redis
 
 
 # MyBatis 配置
@@ -92,6 +95,7 @@ logging:
 #logging:
 #  level:
 #   com.allan.mapper: debug
+
 
 
 
