@@ -69,7 +69,7 @@ public class BaseController {
 		JSON.DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 		Map<String, Object> result = new HashMap<>();
 		result.put("code", "200");
-		result.put("message", "成功");
+		result.put("message", "API调用成功");
 		result.put("data", object);
 		result.put("time", DateUtil.getDateNow("yyyy-MM-dd hh:mm:ss"));
 		return JSON.toJSONString(result, SerializerFeature.PrettyFormat, // json格式化输出

@@ -1,14 +1,20 @@
-package test;
+package com.allan.Util.PDFUtil;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.IOException;
+
 /**
- * 为PDF文档添加水印
+ * 为PDF文档添加水印、页码
  */
-public class WaterMark extends PdfPageEventHelper {
+public class SetWaterMarkAndPage extends PdfPageEventHelper {
+
 
     /**
      * 添加水印
@@ -16,9 +22,9 @@ public class WaterMark extends PdfPageEventHelper {
      * @param document 文档对象
      */
     @Override
-    public  void onEndPage(PdfWriter writer, Document document) {
+    public void onStartPage(PdfWriter writer, Document document){
         //获取水印图片的路径
-        String markImagePath = "D:\\logo.png";//水印图片
+        String markImagePath = "D:\\alibaba.jpg";//水印图片
         float pageHeight = document.getPageSize().getHeight();
         float pageWidth = document.getPageSize().getWidth();
 
@@ -42,5 +48,32 @@ public class WaterMark extends PdfPageEventHelper {
             e.printStackTrace();
             System.out.println("添加水印失败！");
         }
+    }
+
+    /**
+     * 添加页码等设置
+     * @param writer 写入对象
+     * @param document 文档对象
+     */
+    @Override
+    public  void onEndPage(PdfWriter writer, Document document) {
+        // 页眉、页脚
+        PdfContentByte pcb = writer.getDirectContent();
+        try {
+            pcb.setFontAndSize(BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.EMBEDDED), 10);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
+        pcb.saveState();
+        pcb.beginText();
+        // Footer
+        float bottom = document.bottom(-20);
+        pcb.showTextAligned(PdfContentByte.ALIGN_CENTER, "第 " + writer.getPageNumber() + " 页", (document.right() + document.left()) / 2, bottom, 0);
+        pcb.endText();
+
+        pcb.restoreState();
+        pcb.closePath();
     }
 }

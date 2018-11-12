@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * springboot 定时任务demo
  */
-@Component
+//@Component
 public class QuartzTaskDemo {
 
     private static final Logger LOGGER =  LoggerFactory.getLogger(QuartzTaskDemo.class);
@@ -19,7 +19,7 @@ public class QuartzTaskDemo {
      *   使用cron 表达式
      * 每30秒启动
      */
-    @Scheduled(cron = "*/30 * * * * ?")
+//    @Scheduled(cron = "*/30 * * * * ?")
     public void timerToNow(){
         LOGGER.info("》》》》使用cron 表达式，现在时间:" + DateUtil.getDateNow("yyyy-MM-dd hh:mm:ss"));
     }
@@ -33,7 +33,7 @@ public class QuartzTaskDemo {
      *　　@Scheduled(initialDelay=1000, fixedRate=6000)：第一次延迟1秒后执行，之后按fixedRate的规则每6秒执行一次。
      *
      */
-    @Scheduled(fixedRate = 6000)
+//    @Scheduled(fixedRate = 6000)
     public void reportCurrentTime() {
         LOGGER.info("》》》》》使用Rate/Delay表达式，现在时间：" + DateUtil.getDateNow("yyyy-MM-dd hh:mm:ss"));
     }
