@@ -25,11 +25,11 @@ public class ExportPDFUtil {
      * 导出PDF格式
      * @param pdfName 文件名称
      * @param columnTitle  标题头
-     * @param contents  数据
+     * @param datas  数据
      * @param response
      * @throws Exception
      */
-    public static void exportPDF(HttpServletResponse response, String pdfName, String[] columnTitle, List<String[]> contents) throws  Exception{
+    public static void exportPDF(HttpServletResponse response, String pdfName, String[] columnTitle, AbstractPdfExport datas) throws  Exception{
         //主要是用来解决中文字体的问题
         BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
         Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
@@ -93,7 +93,8 @@ public class ExportPDFUtil {
                 table.addCell(headCell);
             }
             //写入表格数据
-            for (String[] content : contents){
+            List<String[]> dataList = datas.settingPdfColumns();
+            for (String[] content : dataList){
                 for (int i = 0; i < content.length; i++) {
                     PdfPCell dataCell = new PdfPCell();
                     dataCell.setBorderColor(borderColor);//边框颜色
