@@ -1,8 +1,11 @@
 package com.allan.Util;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
 import sun.misc.BASE64Encoder;
 
 public class FileUtils {
@@ -28,5 +31,33 @@ public class FileUtils {
 				filename = filename.replace("+"," ");
 			}
 			return filename;
+		}
+
+
+	/**
+	 * 文件上传（按日期生产目录）
+	 * @param file
+	 * @return
+	 */
+		public static String upload(MultipartFile file){
+			String upload_url="";
+			try {
+				if (file.isEmpty()){
+					return upload_url;
+				}
+				String fileName = file.getName();
+				//按日期生产文件夹
+				String dateFile = DateUtil.format(new Date(),"yyyyMMdd" );
+				String path = dateFile;
+				File dest = new File(path+"/"+fileName);
+				if (!dest.getParentFile().exists()){
+					dest.getParentFile().mkdirs();//判断文件父目录是否存在
+				}
+				file.transferTo(dest);//保存文件
+				upload_url = dest.toString();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			return upload_url;
 		}
 }

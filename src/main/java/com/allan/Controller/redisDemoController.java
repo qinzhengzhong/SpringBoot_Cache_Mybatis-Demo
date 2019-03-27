@@ -21,7 +21,7 @@ public class redisDemoController {
 
     @GetMapping(value = "/redis/setTest")
     public void demoTest(){
-        redisService.set(KEY,"redis demo test");
+        redisService.set(KEY,"redis demo SingletonTest");
         logger.info("保存到redis中完成****************");
     }
 

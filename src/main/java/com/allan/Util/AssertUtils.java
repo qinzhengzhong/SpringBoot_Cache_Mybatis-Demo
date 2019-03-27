@@ -22,7 +22,7 @@ public abstract class AssertUtils {
 
 	/**
 	 * Assert a boolean expression, throwing <code>IllegalArgumentException</code>
-	 * if the test result is <code>false</code>.
+	 * if the SingletonTest result is <code>false</code>.
 	 * <pre class="code">Assert.isTrue(i &gt; 0);</pre>
 	 * @param expression a boolean expression
 	 * @throws IllegalArgumentException if expression is <code>false</code>
@@ -33,7 +33,7 @@ public abstract class AssertUtils {
 
 	/**
 	 * Assert a boolean expression, throwing <code>IllegalArgumentException</code>
-	 * if the test result is <code>false</code>.
+	 * if the SingletonTest result is <code>false</code>.
 	 * <pre class="code">Assert.isTrue(i &gt; 0, "The value must be greater than zero");</pre>
 	 * @param expression a boolean expression
 	 * @param message the exception message to use if the assertion fails
@@ -406,7 +406,7 @@ public abstract class AssertUtils {
 
 	/**
 	 * Assert a boolean expression, throwing <code>IllegalStateException</code>
-	 * if the test result is <code>false</code>. Call isTrue if you wish to
+	 * if the SingletonTest result is <code>false</code>. Call isTrue if you wish to
 	 * throw IllegalArgumentException on an assertion failure.
 	 * <pre class="code">Assert.state(id == null, "The id property must not already be initialized");</pre>
 	 * @param expression a boolean expression
@@ -421,7 +421,7 @@ public abstract class AssertUtils {
 
 	/**
 	 * Assert a boolean expression, throwing {@link IllegalStateException}
-	 * if the test result is <code>false</code>.
+	 * if the SingletonTest result is <code>false</code>.
 	 * <p>Call {@link #isTrue(boolean)} if you wish to
 	 * throw {@link IllegalArgumentException} on an assertion failure.
 	 * <pre class="code">Assert.state(id == null);</pre>

@@ -5,12 +5,11 @@ package com.allan.snowflake;
  */
 public class test {
 	public static void main(String[] args) {
-		IdSequenceUtils idSequenceUtils = new IdSequenceUtils();
-		System.out.println(idSequenceUtils.createId());
-		
-		IdGeneratorUtils idGeneratorUtils= new IdGeneratorUtils();
-		System.out.println(idGeneratorUtils.createId());
-	
-		
+		for (int i = 0; i < 5; i++) {
+//			System.out.println(SingletonCreateId.getInstance().createId());
+			System.out.println(SingletonCreateId.getIdGenerator().createId());
+		}
+
+
 	}
 }
