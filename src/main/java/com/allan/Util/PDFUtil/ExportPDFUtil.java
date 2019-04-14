@@ -33,7 +33,6 @@ public class ExportPDFUtil {
         //主要是用来解决中文字体的问题
         BaseFont bfChinese = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
         Font FontChinese = new Font(bfChinese, 12, Font.NORMAL);
-        Font timeFont = new Font(bfChinese, 8, Font.NORMAL);
         BaseColor borderColor = new BaseColor(90, 140, 200);//Cell边框颜色
         BaseColor bgColor = new BaseColor(80, 130, 180);//Cell背景色
 
@@ -69,13 +68,22 @@ public class ExportPDFUtil {
             document.add(titleText);
 
             //设置导出时间
+            /*Font timeFont = new Font(bfChinese, 8, Font.NORMAL);
             Paragraph time = new Paragraph("【导出时间：" + DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss") + " 】", timeFont);
             time.setIndentationLeft(400);
             document.add(time);
-
             //加入空行
             Paragraph blankRow = new Paragraph(8f, " ", FontChinese);
-            document.add(blankRow);
+            document.add(blankRow);*/
+
+            //设置导出标题，居中显示
+            Font titleFont = new Font(bfChinese, 8, Font.BOLD);
+            Paragraph title = new Paragraph(pdfName, titleFont);// 标题
+            title.setLeading(1f);//行距
+            title.setAlignment(Element.ALIGN_CENTER);//居中
+            Paragraph blankTitle = new Paragraph(8f, " ", FontChinese);
+            document.add(blankTitle);
+
 
             //创建表格
             PdfPTable table = new PdfPTable(columnTitle.length);//列数
