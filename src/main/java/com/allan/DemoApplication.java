@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @MapperScan(basePackages = {"com.allan.mapper"})//扫描dao
 @EnableCaching// 开启缓存
-@EnableEncryptableProperties  //配置文件加密
+//@EnableEncryptableProperties  //配置文件加密
 @EnableTransactionManagement // 开启事务管理
 //@EnableScheduling //开启定时任务的注解
 public class DemoApplication {
