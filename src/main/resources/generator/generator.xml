@@ -35,7 +35,7 @@
 		</javaModelGenerator>
 		<!-- 生成的映射文件包名和位置 -->
 		<sqlMapGenerator targetPackage="mapping"
-						 targetProject="/Users/qinzhengzhong/IdeaProjects/SpringBoot_Cache_Mybatis-Demo/src/main/java">
+						 targetProject="/Users/qinzhengzhong/IdeaProjects/SpringBoot_Cache_Mybatis-Demo/src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
