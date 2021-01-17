@@ -5,6 +5,15 @@ import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ *
+ * 功能描述:
+ *
+ * @param: 数据库密码加密
+ * @return:
+ * @auther: qinzhengzhong
+ * @date: 2020/10/11 11:28 上午
+ */
 public class TestBootTest {
     @Autowired
     StringEncryptor stringEncryptor;//密码解码器自动注入

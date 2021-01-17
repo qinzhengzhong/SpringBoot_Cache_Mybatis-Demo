@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * springboot redis 服务
+ * @author qinzhengzhong
  *
  */
 @Service
